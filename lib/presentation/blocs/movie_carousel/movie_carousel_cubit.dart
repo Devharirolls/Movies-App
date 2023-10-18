@@ -39,42 +39,4 @@ class MovieCarouselCubit extends Cubit<MovieCarouselState> {
   }
 }
 
-// class MovieCarouselBlocBloc extends Bloc<MovieCarouselBlocEvent, MovieCarouselBlocState> {
-//   final GetTrending getTrending;
-//   final MovieBackdropBloc moviebackdropBloc;
-//   MovieCarouselBlocBloc( {required this.getTrending, required this.moviebackdropBloc}) : super(MovieCarouselBlocInitial()) {
-//     on<MovieCarouselBlocEvent>((event, emit)async* {
-//        if (event is CarouselLoadEvent) {
-//       final moviesEither = await getTrending(NoParams());
-//       yield moviesEither.fold((l) => MovieCarouselError(l.appErrorType),
-//           (movies) {
-//         moviebackdropBloc
-//             .add(MovieBackdropChangedEvent(movies[event.defaultIndex]));
-//         return MovieCarouselLoaded(
-//             movies: movies, defaultIndex: event.defaultIndex);
-//       });
-//     }
-//     });
-//   }
-// }
 
-
-// class MovieCarouselBlocBloc
-//     extends Bloc<MovieCarouselBlocEvent, MovieCarouselBlocState> {
-//   final GetTrending getTrending;
-//   MovieCarouselBlocBloc(this.getTrending) : super(MovieCarouselBlocInitial()) {
-//     // ignore: void_checks
-//     on<MovieCarouselBlocEvent>((event, emit) async* {
-//       if (event is CarouselLoadEvent) {
-//       final moviesEither = await getTrending(NoParams());
-//       // ignore: void_checks
-//       yield moviesEither.fold((l) => MovieCarouselError(), (movies) {
-//         return MovieCarouselLoaded(
-//             movies: movies, defaultIndex: event.defaultIndex);
-//       }
-//       );
-//     }  
-//     }
-//     );
-//   }
-// }
