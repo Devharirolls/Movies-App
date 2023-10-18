@@ -24,22 +24,7 @@ class ApiClient {
     }
   }
 
-  // dynamic get(String path, {Map<dynamic, dynamic>? params}) async {
-  //    await Future.delayed(Duration(milliseconds: 500));
-  //   var url = Uri.parse('${ApiConstants.BASE_URL}$path?api_key=${ApiConstants.API_KEY}');
-  //   final response = await _client.get(
-  //     url,
-  //    // getPath(path, params),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   );
-  //   if (response.statusCode == 200) {
-  //     return json.decode(response.body);
-  //   } else {
-  //     throw Exception(response.reasonPhrase);
-  //   }
-  // }
+
 
   dynamic post(String path, {Map<dynamic, dynamic>? params}) async {
     final response = await _client.post(
