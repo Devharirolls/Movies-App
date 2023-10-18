@@ -9,43 +9,6 @@ import 'package:jokermovies/domain/entities/movie_entity.dart';
 import 'package:jokermovies/presentation/blocs/favorite/favorite_cubit.dart';
 import 'package:jokermovies/presentation/journeys/movie_detail/movie_detail_arugments.dart';
 
-// class FavoriteMovieCardWidget extends StatelessWidget {
-//   final MovieEntity movie;
-//   const FavoriteMovieCardWidget({super.key, required this.movie});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       margin: EdgeInsets.only(bottom: Sizes.dimen_8.h.toDouble()),
-//       decoration: BoxDecoration(
-//         borderRadius: BorderRadius.circular(Sizes.dimen_8.w.toDouble())
-//       ),
-//       child: Stack(
-//         children: <Widget>[
-//           CachedNetworkImage(
-//             imageUrl: '${ApiConstants.BASE_IMAGE_URL}${movie.posterPath}',
-//             fit: BoxFit.cover,
-//             width: Sizes.dimen_100.h.toDouble(),
-//           ),
-//           Align(
-//             alignment: Alignment.topRight,
-//             child: GestureDetector(
-//               onTap: () => BlocProvider.of<FavoriteBloc>(context).add(DeleteFavoriteMovieEvent(movie.id)),
-//               child: Padding(
-//                 padding: EdgeInsets.all(Sizes.dimen_12.w.toDouble()),
-//                 child: Icon(
-//                   Icons.delete,
-//                   size: Sizes.dimen_12.h.toDouble(),
-//                   color: Colors.white,
-//                 ),
-//               ),
-//             ),
-//           )
-//         ],
-//       ),
-//     );
-//   }
-// }
 
 class FavoriteMovieCardWidget extends StatelessWidget {
   final MovieEntity movie;
