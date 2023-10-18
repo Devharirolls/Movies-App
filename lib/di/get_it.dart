@@ -203,8 +203,4 @@ Future init() async {
 }
 
 
- // if (!GetIt.instance.isRegistered<MovieCarouselBlocBloc>()) {
-  //   GetIt.instance.registerLazySingleton<MovieCarouselBlocBloc>(() =>
-  //       MovieCarouselBlocBloc(
-  //           getTrending: getItInstance(), moviebackdropBloc: getItInstance(),loadingBloc:getItInstance()));
-  // }
+
