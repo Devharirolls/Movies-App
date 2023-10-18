@@ -1,0 +1,68 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jokermovies/common/constants/size_constants.dart';
+import 'package:jokermovies/common/extension/size_extension.dart';
+import 'package:jokermovies/common/screenutil/screenutil.dart';
+import 'package:jokermovies/domain/entities/movie_entity.dart';
+import 'package:jokermovies/presentation/blocs/movie_backdrop/movie_backdrop_cubit.dart';
+import 'package:jokermovies/presentation/journeys/home/Movie_carousel/animated_movie_card.dart';
+
+class MoviePageView extends StatefulWidget {
+  final List<MovieEntity> movies;
+  final int initialpage;
+
+  const MoviePageView({
+    super.key,
+    required this.movies,
+    this.initialpage = 0,
+  }) : assert(initialpage >= 0, 'initialpage cannot be less then 0');
+
+  @override
+  State<MoviePageView> createState() => _MoviePageViewState();
+}
+
+class _MoviePageViewState extends State<MoviePageView> {
+  late PageController? _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(
+      initialPage: widget.initialpage,
+      keepPage: false,
+      viewportFraction: 0.7,
+    );
+  }
+
+  @override
+  void dispose() {
+     _pageController?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: Sizes.dimen_10.h.toDouble()),
+      height: ScreenUtil.screenHeight * 0.35,
+      child: PageView.builder(
+        controller: _pageController,
+        itemBuilder: (context, index) {
+          final MovieEntity movie = widget.movies[index];
+          return AnimatedMovieCardWidget(
+            index: index,
+            pageController: _pageController!,
+            movieId: movie.id,
+            posterPath: movie.posterPath,
+          );
+        },
+        pageSnapping: true,
+        itemCount: widget.movies.length,
+        onPageChanged: (index) {
+          BlocProvider.of<MovieBackdropCubit>(context)
+              .backdropChanged(widget.movies[index]);
+        },
+      ),
+    );
+  }
+}
