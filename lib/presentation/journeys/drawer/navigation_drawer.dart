@@ -90,26 +90,7 @@ class NavigationDrawers extends StatelessWidget {
               height: Sizes.dimen_32.h.toDouble(),
             ),
 
-            // BlocBuilder<ThemeCubit, Themes>(builder: (context, theme) {
-            //   return Align(
-            //     alignment: Alignment.center,
-            //     child: GestureDetector(
-            //       onTap: () => context.read<ThemeCubit>().toggleTheme(),
-            //       child: IconButton(
-            //         onPressed: () => context.read<ThemeCubit>().toggleTheme(),
-            //         icon: Icon(
-            //           theme == Themes.dark
-            //               ? Icons.brightness_4_sharp
-            //               : Icons.brightness_7_sharp,
-            //           color: context.read<ThemeCubit>().state == Themes.dark
-            //               ? Colors.white
-            //               : AppColor.vulcan,
-            //           size: Sizes.dimen_40.w.toDouble(),
-            //         ),
-            //       ),
-            //     ),
-            //   );
-            // }),
+          
           ],
         ),
       ),
